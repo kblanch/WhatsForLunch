@@ -9,59 +9,78 @@
 </head>
 
 <body>
-    <h1>Create A New Order</h1>
-    <br>
-    <div>
-        <h3>Time Left: <span id="timeLeft">30:00</span></h3>
-    </div>
-    <br>
-    <div>
-        <h3 id="restaurant">Restaurant</h3>
+    <div id="content">
+        <h1>Create A New Order</h1>
+        <br>
+        <div>
+            <h3>Amount Of Time To Order: <div class="form-group">
+                <select class="form-control">
+                    <option>10 min</option>
+                    <option>20 min</option>
+                    <option>30 min</option>
+                    <option>40 min</option>
+                    <option>50 min</option>
+                    <option>60 min</option>
+                </select>
+            </h3>   
+        </div>
+        </div>
+        <br>
+        <p id="restaurant">Restaurant</p>
         <input type="text" name="restaurant" id="restaurantInput">
-        <h3 id="cheatCode">Cheat Code</h3>
-        <input type="text" name="cheatCode" id="cheatCodeInput">
+        <p id="address">Address</p>
+        <input type="text" name="address" id="addressInput">
+        <p id="city">City</p>
+        <input type="text" name="city" id="cityInput">
+        <p id="zipCode">Zip Code</p>
+        <input type="text" name="zipCode" id="zipCodeInput">
+        <p id="secretCode">Secret Code</p>
+        <input type="text" name="secretCode" id="secretCodeInput">
         <br>
         <br>
         <button type="button" class="btn btn-default" id="submitButton">Submit</button>
     </div>
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        function startTimer(duration, display) {
-            var timer = duration,
-                minutes, seconds;
-            setInterval(function() {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                display.textContent = minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    endGame();
-                }
-            }, 1000);
-        }
-
-        var mins = 60 * 30,
-            display = document.querySelector('#timeLeft');
-
-        startTimer(mins, display);
-
-        $(document).on('click', "#submitButton", function(event) {
-            event.preventDefault();
-
-            var restaurant = $("#restaurantInput").val();
-            var cheatCode = $("#cheatCodeInput").val();
-            console.log(restaurant);
-            console.log(cheatCode);
-
-        });
-
-    });
-    </script>
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    //Countdown timer
+
+    // function startTimer(duration, display) {
+    //     var timer = duration,
+    //         minutes, seconds;
+    //     setInterval(function() {
+    //         minutes = parseInt(timer / 60, 10);
+    //         seconds = parseInt(timer % 60, 10);
+
+    //         minutes = minutes < 10 ? "0" + minutes : minutes;
+    //         seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    //         display.textContent = minutes + ":" + seconds;
+
+    //         if (--timer < 0) {
+    //             var timesUp = $("<h1>Times Up" + "<br><br>" + "<p>Times up. You are no longer able to order. Oh well</p>")
+    //             $('#content').html(timesUp);
+    //         }
+    //     }, 1000);
+    // }
+
+    // var mins = 60 * 30,
+    //     display = document.querySelector('#timeLeft');
+
+    // startTimer(mins, display);
+
+    $(document).on('click', "#submitButton", function(event) {
+        event.preventDefault();
+
+        var restaurant = $("#restaurantInput").val();
+        var address = $("#addressInput").val();
+        var city = $("#cityInput").val();
+        var zipCode = $("#zipCodeInput").val();
+        var secretCode = $("#secretCodeInput").val();
+    });
+
+});
+</script>
 
 </html>

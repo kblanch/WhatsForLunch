@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Confirm</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Confirmation Page</h1>
+	<div>
+		<h3>Restaurant</h3>
+		<p id="restaurantConfirm"></p> <!-- name of restaurant and address info -->
+		<h3>Secret Code</h3>
+		<p id="secretCodeConfirm"></p> <!-- secret code created by creator to be used to access order page -->
+	</div>
+</body>
+<script type="text/javascript">
+	
+	$(document).ready(function($) {
+
+		$("#restaurantConfirm").html(restaurant);
+		$("#secretCodeConfirm").html(secretCode);
+
+	});
+
+
+</script>
+</html>
