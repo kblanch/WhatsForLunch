@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script>
+	$.ajax({
+	    url: 'https://developers.zomato.com/api/v2.1/cities?q=sacramento',
+	    headers: {
+	        'user-key':'b8910995d9facc1a087e4ef0101c4b60'
+	    },
+	    method: 'GET'
+  	}).done(function (data) {
+  		console.log('succes: ' + data);
+  	});
+</script>
+</body>
+</html>
