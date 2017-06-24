@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create A New Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Create A New Order</h1>
+    <br>
+    <div>
+        <h3>Time Left: <span id="timeLeft">30:00</span></h3>
+    </div>
+    <br>
+    <div>
+        <h3 id="restaurant">Restaurant</h3>
+        <input type="text" name="restaurant" id="restaurantInput">
+        <h3 id="cheatCode">Cheat Code</h3>
+        <input type="text" name="cheatCode" id="cheatCodeInput">
+        <br>
+        <br>
+        <button type="button" class="btn btn-default" id="submitButton">Submit</button>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        function startTimer(duration, display) {
+            var timer = duration,
+                minutes, seconds;
+            setInterval(function() {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        var mins = 60 * 30,
+            display = document.querySelector('#timeLeft');
+
+        startTimer(mins, display);
+
+        $(document).on('click', "#submitButton", function(event) {
+            event.preventDefault();
+
+            var restaurant = $("#restaurantInput").val();
+            var cheatCode = $("#cheatCodeInput").val();
+            console.log(restaurant);
+            console.log(cheatCode);
+
+        });
+
+    });
+    </script>
+</body>
+
+</html>
