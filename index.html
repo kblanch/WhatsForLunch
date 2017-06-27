@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>What's For Lunch?</title>
 </head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 <body>
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-<script>
-	$.ajax({
-	    url: 'https://developers.zomato.com/api/v2.1/cities?q=sacramento',
-	    headers: {
-	        'user-key':'b8910995d9facc1a087e4ef0101c4b60'
-	    },
-	    method: 'GET'
-  	}).done(function (data) {
-  		console.log('succes: ' + data);
-  	});
-</script>
+<!--   <header>What's For Lunch? </header>
+ -->  <div class="container">
+    <img src="images/logo2.svg" alt="Logo" height="300" width="400"></img>
+    <p></p>
+    <header> What's For Lunch? </header>
+    <p></p>
+	<button type="button" class="btn btn-warning">Create Order</button>
+	<p></p>
+	<button type="button" class="btn btn-warning">Add to Existing Order</button>
+	<p></p>
+	<button type="button" class="btn btn-warning">View Order</button>
+  </div>
 </body>
-</html>
+</html> 
