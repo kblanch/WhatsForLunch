@@ -19,11 +19,12 @@ var config = {
     var zipCode;
     var secretCode;
     var minutes; 
+    var restaurantConfirm;
 
-    $(document).on('click', "#submitButton", function(event) {
+    $(document).on('click', "#add-order-line-btn", function(event) {
         event.preventDefault();
 
-        window.location.href = "creator_confirm_page.html";
+        
 
          restaurant = $("#restaurantInput").val();
          address = $("#addressInput").val();
@@ -32,31 +33,64 @@ var config = {
          secretCode = $("#secretCodeInput").val();
          minutes = $("#minutesSelected").val();
 
-        database.ref().push({
-            restaurant: restaurant,
-            address: address,
-            city: city,
-            zipCode: zipCode,
-            secretCode: secretCode,
-            minutes: minutes
+         
+         $("#timeChosen").html(minutes);
+         $("#secretCodeConfirm").html(secretCode);
+
+
+
+        var longitude;
+        var latitude;
+        var radius = 3000; //In meters
+        
+        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+city+zipCode+"&key=AIzaSyBlfREnpaS6btRbcuWrKDJQudacfPBf7SI";
+        $.ajax({
+          url: queryURL,
+          method: 'GET'
+        }).done(function(response) {
+          // console.log(response);
+          // console.log(response.results[0].geometry.location.lat);
+          // console.log(response.results[0].geometry.location.lng);
+          longitude = response.results[0].geometry.location.lat;
+          latitude = response.results[0].geometry.location.lng;
+         
+        });
+        var zomatoQueryURL = "https://developers.zomato.com/api/v2.1/search?q=" + restaurant + "&count=5&lat=" + latitude + "lon=" + longitude + "&radius="+radius;
+        $.ajax({
+            url: zomatoQueryURL,
+            headers: {
+                'user-key':'b8910995d9facc1a087e4ef0101c4b60'
+            },
+            method: 'GET'
+        }).done(function (data) {
+            // console.log('succes: ' + data);
+            // console.log(JSON.stringify(data.restaurants));
+            var restaurantListDiv = $('<div>');
+            for(var i = 0; i < data.restaurants.length; i++){
+                var rInfoDiv = $('<div>');
+               rInfoDiv.html("<input type=radio name=restaurant>"+"<div>" + data.restaurants[i].restaurant.name + "</div><div>" + data.restaurants[i].restaurant.location.address + "</div><div>" + data.restaurants[i].restaurant.location.city + "</div><div>" + data.restaurants[i].restaurant.location.zipcode + "</div><br>");//
+                restaurantListDiv.append(rInfoDiv);
+
+ 
+               // $('#restaurantConfirm').html(restaurantListDiv)
+
+               $("#content").html(restaurantListDiv)
+
+            };
+
+            
+            
         });
 
-        
 
+
+            // window.location.href = "creator_confirm_page.html";
     });
 
-    database.ref().on('child_added', function(snapshot) {
-
-        $("#timeChosen").empty();
-        $("#restaurantConfirm").empty();
-        $("#secretCodeConfirm").empty();
 
 
-        $("#timeChosen").append(snapshot.val().minutes);
-        $("#restaurantConfirm").append(snapshot.val().restaurant);
-        $("#secretCodeConfirm").append(snapshot.val().secretCode);
 
-    });
+    
 
     //   Countdown timer
 

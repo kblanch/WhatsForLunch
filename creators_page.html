@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-     <script type="text/javascript" src="app.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body>
-    <div id="content">
+<div id="wrapper" class="col-md-5">
+    
         <h1>Create A New Order</h1>
         <br>
         <div>
@@ -24,24 +26,58 @@
                     <option>50 min</option>
                     <option>60 min</option>
                 </select>
-            </h3>   
+                </div>
+            </h3>
         </div>
+    
+    <br>
+    <p id="restaurant">Restaurant</p>
+    <input type="text" name="restaurant" id="restaurantInput">
+    <p id="address">Address</p>
+    <input type="text" name="address" id="addressInput">
+    <p id="city">City</p>
+    <input type="text" name="city" id="cityInput">
+    <p id="zipCode">Zip Code</p>
+    <input type="text" name="zipCode" id="zipCodeInput">
+    <p id="secretCode">Secret Code</p>
+    <input type="text" name="secretCode" id="secretCodeInput">
+    <br>
+    <br>
+      <button id='add-order-line-btn' type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+        Submit
+    </button>
+  
+</div>
+
+<div id="content" class="col-md-5">
+
+
+</div>
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Order Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <h3>Time Chosen: <span id="timeChosen"></span></h3>
+                        <h3>Restaurant: </h3>
+                        <div id="restaurantConfirm"></div>
+                        <h3>Secret Code: </h3>
+                        <div id="secretCodeConfirm"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <br>
-        <p id="restaurant">Restaurant</p>
-        <input type="text" name="restaurant" id="restaurantInput">
-        <p id="address">Address</p>
-        <input type="text" name="address" id="addressInput">
-        <p id="city">City</p>
-        <input type="text" name="city" id="cityInput">
-        <p id="zipCode">Zip Code</p>
-        <input type="text" name="zipCode" id="zipCodeInput">
-        <p id="secretCode">Secret Code</p>
-        <input type="text" name="secretCode" id="secretCodeInput">
-        <br>
-        <br>
-        <button type="button" class="btn btn-default" id="submitButton">Submit</button>
-    </div>
+    </div> -->
+    
 </body>
 
 </html>
