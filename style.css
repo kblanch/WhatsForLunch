@@ -1,0 +1,33 @@
+body {
+	background-color: transparent;
+}
+
+.container{
+	width:100%;
+	text-align: center;
+
+}
+
+.container img{
+	height: 25%;
+	width: 25%;
+	background-color: transparent;
+	margin-left:50px;
+}
+
+header {
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 50px;
+	color:#f7d79b;
+}
+
+.btn{
+	height:52px;
+	font-weight:bold;
+	width:290px;
+	font-size:20px;
+	margin: 5px;
+	letter-spacing: 1px;
+	font-family: 'Droid Sans', sans-serif;
+}
+
