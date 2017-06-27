@@ -29,7 +29,13 @@
 						  	<option>5</option>
 						</select>
 					</div>
-					<button id='add-order-line-btn' type="button" class="btn btn-default">Submit</button>
+
+
+          <button id='add-order-line-btn' type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+  Submit
+</button>
+
+					<!-- <button id='add-order-line-btn' type="button" class="btn btn-default">Submit</button> -->
 				</form>
   			</div>
 		</div>
@@ -38,12 +44,12 @@
 
 
 
-<div class='container'>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+
+<!-- 
+          <button id='add-order-line-btn' type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
   Submit
 </button>
-</div>
+ -->
 
 
 <!-- Modal -->
@@ -55,11 +61,13 @@
         <h4 class="modal-title" id="myModalLabel">Order Confirmation</h4>
       </div>
       <div class="modal-body">
-        ...
+        <span id='order-name'></span>, your Line Has Been Added!
+        <div>Item: <span id='order-item'></span></div>
+        <div>Quantity: <span id='order-qty'></span></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -84,6 +92,20 @@
     		name = $('#order-line-name-input').val().trim();
     		item = $('#order-line-item-input').val().trim();
     		qty = $('select').val();
+
+        $('#order-line-name-input').val('');
+        $('#order-line-item-input').val('');
+        $('select').val('1');
+
+        console.log(name);
+        console.log(item);
+        console.log(qty);
+
+        $('#order-name').html(name);
+        $('#order-item').html(item);
+        $('#order-qty').html(qty);
+
+
     	}
 
     	$(document).on("click",'#add-order-line-btn', addOrderLine);
