@@ -6,6 +6,8 @@
     <title>Create A New Order</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+     <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body>
@@ -14,7 +16,7 @@
         <br>
         <div>
             <h3>Amount Of Time To Order: <div class="form-group">
-                <select class="form-control">
+                <select class="form-control" id="minutesSelected">
                     <option>10 min</option>
                     <option>20 min</option>
                     <option>30 min</option>
@@ -41,46 +43,5 @@
         <button type="button" class="btn btn-default" id="submitButton">Submit</button>
     </div>
 </body>
-<script type="text/javascript">
-$(document).ready(function() {
-
-    //Countdown timer
-
-    // function startTimer(duration, display) {
-    //     var timer = duration,
-    //         minutes, seconds;
-    //     setInterval(function() {
-    //         minutes = parseInt(timer / 60, 10);
-    //         seconds = parseInt(timer % 60, 10);
-
-    //         minutes = minutes < 10 ? "0" + minutes : minutes;
-    //         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    //         display.textContent = minutes + ":" + seconds;
-
-    //         if (--timer < 0) {
-    //             var timesUp = $("<h1>Times Up" + "<br><br>" + "<p>Times up. You are no longer able to order. Oh well</p>")
-    //             $('#content').html(timesUp);
-    //         }
-    //     }, 1000);
-    // }
-
-    // var mins = 60 * 30,
-    //     display = document.querySelector('#timeLeft');
-
-    // startTimer(mins, display);
-
-    $(document).on('click', "#submitButton", function(event) {
-        event.preventDefault();
-
-        var restaurant = $("#restaurantInput").val();
-        var address = $("#addressInput").val();
-        var city = $("#cityInput").val();
-        var zipCode = $("#zipCodeInput").val();
-        var secretCode = $("#secretCodeInput").val();
-    });
-
-});
-</script>
 
 </html>
