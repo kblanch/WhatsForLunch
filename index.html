@@ -3,24 +3,130 @@
 <head>
 	<meta charset="UTF-8">
 	<title>What's For Lunch?</title>
-</head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <!-- <script type="text/javascript" src="assets/javascript/app.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+</head>
 <body>
-<!--   <header>What's For Lunch? </header>
- -->  <div class="container">
-    <img src="images/logo2.svg" alt="Logo" height="300" width="400"></img>
-    <p></p>
-    <header> What's For Lunch? </header>
-    <p></p>
-	<button type="button" class="btn btn-warning">Create Order</button>
-	<p></p>
-	<button type="button" class="btn btn-warning">Add to Existing Order</button>
-	<p></p>
-	<button type="button" class="btn btn-warning">View Order</button>
-  </div>
+    <div class="container">
+        <img src="images/logo2.svg" alt="Logo" height="300" width="400"></img>
+        <p></p>
+        <header> What's For Lunch? </header>
+        <p></p>
+<button class ="btn btn-primary btn-warning btn-lg width-290">Create Order</button>
+<p></p>
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-warning btn-lg width-290" data-toggle="modal" data-target="#myModalHorizontal">
+    Add to Existing Order
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Hold On There! We Need Your Code!
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="inputEmail3">Enter Code:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" 
+                        id="inputEmail3" placeholder="Code"/>
+                    </div>
+                  </div>
+                </form>
+                
+            </div>
+            
+            <!-- Modal One Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-small btn-warning"
+                        data-dismiss="modal">
+                            Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p></p>
+
+<button class="btn btn-primary btn-warning btn-lg width-290" data-toggle="modal" data-target="#myModalHorizontal">
+    View Order
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Hold On There! We Need Your Code!
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="inputEmail3">Enter Code:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" 
+                        id="inputEmail3" placeholder="Code"/>
+                    </div>
+                  </div>
+                </form>
+                
+            </div>
+            
+            <!-- Modal One Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm"
+                        data-dismiss="modal">
+                            Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p></p>
+
+
+
+
+
+
+
+    	<!-- <button type="button" " class="btn btn-warning" data-toggle="modal" data-target="#modalOne">Create Order</button>
+    	<p></p>
+    	<button type="button" id="addorder" class="btn btn-warning">Add to Existing Order</button>
+    	<p></p>
+    	<button type="button" id="vieworder" class="btn btn-warning">View Order</button> -->
+    </div>
 </body>
 </html> 
