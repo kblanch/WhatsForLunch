@@ -21,13 +21,24 @@ header {
 	color:#f7d79b;
 }
 
-.btn{
+
+.width-290 {
+	width:20%;
 	height:52px;
 	font-weight:bold;
-	width:290px;
 	font-size:20px;
 	margin: 5px;
 	letter-spacing: 1px;
 	font-family: 'Droid Sans', sans-serif;
 }
+
+
+/*.btn {
+	height:52px;
+	font-weight:bold;
+	font-size:20px;
+	margin: 5px;
+	letter-spacing: 1px;
+	font-family: 'Droid Sans', sans-serif;
+}*/
 
