@@ -32,6 +32,9 @@ header {
 	font-family: 'Droid Sans', sans-serif;
 }
 
+a:visited{
+	color:white;
+}
 
 /*.btn {
 	height:52px;
