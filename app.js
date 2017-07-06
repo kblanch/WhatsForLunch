@@ -47,7 +47,9 @@ $(document).ready(function($) {
             var restaurantListDiv = $('<div class="rInfoDiv">');
             for (var i = 0; i < data.restaurants.length; i++) {
                 var rInfoDiv = $('<div>');
-                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none'>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul><br>"); //
+
+                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>"); //
+
                 restaurantListDiv.append(rInfoDiv);
 
            };
@@ -100,7 +102,21 @@ $(document).ready(function($) {
 
         timeSelected = $("#timeSelected :selected").val();
         restaurantChoice = $('#restaurantList').html();
+
         secretCode = $("#secretCodeInput").val();
+
+        $("#wrapper").html('<div>'+
+                        '<h1>Confirmation Page</h1>'+
+                        '<div>'+
+                            '<h3>Time Left: </h3>' +
+                            '<p id="timeLeft"></p>' +
+                            '<h3>Restaurant: </h3>' +
+                            '<p id="restaurantConfirm"></p>' +
+                            '<h3>Secret Code: </h3>' +
+                            '<p id="secretCodeConfirm"></p>' +
+                         '</div>' +
+                    '</div>')
+
 
         $("#wrapper").html('<div>' +
             '<h1 class="creatorHeader">Confirmation Page</h1>' +
