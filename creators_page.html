@@ -16,21 +16,27 @@
 
 <body>
     <div id="wrapper">
-        <h1>Choose a Restaurant</h1>
-        <div id="formContent" class="col-md-5">
+        <h1 class="creatorHeader">Choose a Restaurant</h1>
+        <div id="formContent" class="col-md-6">
             <br>
+            <form id="creatorForm">
             <p id="restaurant">Restaurant</p>
-            <input type="text" name="restaurant" id="restaurantInput">
+            <input type="text" name="restaurant" id="restaurantInput" class="formInput" placeholder="Name of Restaurant" >
+            <br><br>
             <p id="address">Address</p>
-            <input type="text" name="address" id="addressInput">
+            <input type="text" name="address" id="addressInput" class="formInput" placeholder="Your Current Address">
+            <br><br>
             <p id="city">City</p>
-            <input type="text" name="city" id="cityInput">
+            <input type="text" name="city" id="cityInput" class="formInput" placeholder="Your Current City">
+            <br><br>
             <p id="zipCode">Zip Code</p>
-            <input type="text" name="zipCode" id="zipCodeInput">
-            <br>
-            <button id="submit">Submit</button>
+            <input type="text" name="zipCode" id="zipCodeInput" class="formInput" placeholder="Your Current Zip Code">
+            <br><br>
+            <button id="submit" class="btn btn-warning">Submit</button>
+            </form>
         </div>
-        <div id="restaurantContent" class="col-md-5">
+
+        <div id="restaurantContent" class="col-md-6">
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -38,7 +44,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal 1</h4>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
                 </div>
                 <div class="modal-body">
                     <div>
@@ -60,39 +66,12 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="add-order-line-btn2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Submit</button>
+                    <button id="add-order-line-btn2" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2">Submit</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel2">Order Confirmation</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <h1>Confirmation Page</h1>
-                        <div>
-                            <h3>Time Left: </h3>
-                            <p id="timeLeft"></p>
-                            <h3>Restaurant: </h3>
-                            <p id="restaurantConfirm"></p>
-                            <h3>Secret Code: </h3>
-                            <p id="secretCodeConfirm"></p>
-                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    
-                </div>
-            </div>
-        </div>
-    </div> -->
 </body>
 
 </html>
