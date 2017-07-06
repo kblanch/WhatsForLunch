@@ -49,8 +49,8 @@ $(document).ready(function($) {
                 var rInfoDiv = $('<div>');
 
                 rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>"); //
-
                 restaurantListDiv.append(rInfoDiv);
+           };
 
            };
 
