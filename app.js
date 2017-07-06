@@ -48,10 +48,10 @@ $(document).ready(function($) {
             var restaurantListDiv = $('<div>');
             for (var i = 0; i < data.restaurants.length; i++) {
                 var rInfoDiv = $('<div>');
-                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<div id='restaurantWrapper'>" + "<div>" + data.restaurants[i].restaurant.name + "</div><div>" + data.restaurants[i].restaurant.location.address + "</div><div>" + data.restaurants[i].restaurant.location.city + "</div><div>" + data.restaurants[i].restaurant.location.zipcode + "</div><br></div>"); //
+                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>"); //
                 restaurantListDiv.append(rInfoDiv);
 
-            };
+           };
 
 
             var btn = $('<button id="add-order-line-btn" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Submit</button>');
@@ -101,7 +101,7 @@ $(document).ready(function($) {
 
         secretCode = $("#secretCodeInput").val();
         timeSelected = $("#timeSelected :selected").val();
-        restaurantChoice = $('input[name="restaurantRadio"]:checked').parent().html();
+        restaurantChoice = $('#restaurantList').html();
         $("#wrapper").html('<div>'+
                         '<h1>Confirmation Page</h1>'+
                         '<div>'+
