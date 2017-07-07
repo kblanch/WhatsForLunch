@@ -3,15 +3,56 @@
 <head>
 	<title>What's for lunch?</title>
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<!--     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+      <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 
+    <style type="text/css">
+      .panel, .modal-header, .modal-footer{
+        background-color: #F0AD4E;
+      }
 
+      .container-fluid { 
+margin: auto;
+text-align: center;
+background-size: cover;
+width:100%;
+height: 100%;
+z-index:2;
+background-color: white;
+position:fixed;
+border-radius: 25px;
+border: 2px #f7d79b;
+}
+      
+    </style>
+    
 </head>
 <body>
+
+
+<div class="container-fluid" id="popup" >
+  <header>Secret Code Confirmation Page</header>
+  <div>
+    <p><label>Secret Code</label>
+      <input type="text" id=confirmCode class="form-control" placeholder="Your Code Here"></p>
+  </div>
+  
+  <button id ="submitCode" class="btn btn-primary btn-warning btn-lg width-290">Submit Code</button>
+</div>
+
+
+  <div class='container'>
+    <div class = 'jumbotron'>
+      
+    </div>
+  </div>
+  
+
+
 	<div class='container'>
 		<div class="panel panel-default">
   			<div class="panel-body">
@@ -27,7 +68,7 @@
 					<div class="form-group">
 						<label>Quantity</label>
 						<select class="form-control">
-							<option>1</option>
+							  <option>1</option>
 						  	<option>2</option>
 						  	<option>3</option>
 						  	<option>4</option>
@@ -36,9 +77,7 @@
 					</div>
 
 
-          <button id='add-order-line-btn' type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-  Submit
-</button>
+          <button id='add-order-line-btn' type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"> Submit </button>
 
 					<!-- <button id='add-order-line-btn' type="button" class="btn btn-default">Submit</button> -->
 				</form>
@@ -103,7 +142,23 @@
       firebase.initializeApp(config);
 
       var database = firebase.database();
-    	
+    	var code = 'testCode10';
+      var div;
+
+
+
+      database.ref('orders/tfy').on("value", function(snapshot) {
+        var r = snapshot.val().restaurantChoice;
+        console.log(r);
+        div = $('<div>');
+
+        div.html(r);
+        $('.jumbotron').append(div);
+      });
+
+
+
+
       var name;
     	var item;
     	var qty;
@@ -112,6 +167,15 @@
     		name = $('#order-line-name-input').val().trim();
     		item = $('#order-line-item-input').val().trim();
     		qty = $('select').val();
+
+
+        database.ref('orders/tfy/lines').child(name + '-' + item + '-' + qty).set({
+           name: name,
+           item: item,
+           qty: qty
+        });
+
+
 
         $('#order-line-name-input').val('');
         $('#order-line-item-input').val('');
@@ -129,6 +193,17 @@
     	}
 
     	$(document).on("click",'#add-order-line-btn', addOrderLine);
+
+      $(document).on('click', '#submitCode', function(event) {
+        event.preventDefault();
+        confirmCode = $("#confirmCode").val();
+        console.log(confirmCode);
+
+
+      $("#popup").hide();
+        
+
+    });
 
     </script>
 
