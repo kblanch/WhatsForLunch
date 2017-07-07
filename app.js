@@ -174,17 +174,7 @@ $(document).ready(function($) {
         window.location.href = "creators_page.html";
     });
 
-    var config = {
-        apiKey: "AIzaSyB0ECXU5TKSZzGXj8f13HwpSLgAJYSJYXQ",
-        authDomain: "whats-for-lunch-2905e.firebaseapp.com",
-        databaseURL: "https://whats-for-lunch-2905e.firebaseio.com",
-        projectId: "whats-for-lunch-2905e",
-        storageBucket: "whats-for-lunch-2905e.appspot.com",
-        messagingSenderId: "826669516912"
-      };
-      firebase.initializeApp(config);
-
-      var database = firebase.database();
+  
         var code = 'testCode10';
       var div;
 
