@@ -76,3 +76,11 @@ h3, .confirmP, #confirmWrapper {
 .confirmHeaders{
 	color: gray;
 }
+
+.parsley-required{
+	color: red;
+}
+
+ul {
+	list-style-type: none;
+}

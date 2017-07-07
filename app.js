@@ -49,12 +49,12 @@ $(document).ready(function() {
                 var rInfoDiv = $('<div>');
                 // rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>");
 
-                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<div id='restaurantList'>" + data.restaurants[i].restaurant.name +"<br>" + data.restaurants[i].restaurant.location.address + "<br>" + data.restaurants[i].restaurant.location.city + "<br><br></div>");
+                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<div id='restaurantList'>" + data.restaurants[i].restaurant.name + "<br>" + data.restaurants[i].restaurant.location.address + "<br>" + data.restaurants[i].restaurant.location.city + "<br><br></div>");
 
                 restaurantListDiv.append(rInfoDiv);
-           };   
+            };
 
-           
+
 
             var btn = $('<button class="btn btn-warning" data-toggle="modal" data-target="#myModal">Submit</button>');
             restaurantListDiv.append(btn);
@@ -67,17 +67,25 @@ $(document).ready(function() {
 
         event.preventDefault();
 
+        $('#creatorForm').parsley().validate()
+
+        if (!$('#creatorForm').parsley().isValid()) {
+            return
+        }
+
         restaurant = $("#restaurantInput").val();
         address = $("#addressInput").val();
         city = $("#cityInput").val();
         zipCode = $("#zipCodeInput").val();
 
-        if (isNaN(zipCode) || zipCode < 10000 || zipCode > 99999) {
-            $("#zipCode").append("<br>" + "<p class='zipCodeError'>*Please Input a Valid Zip Code*</p>");
-            return;
-        };
+        // if (isNaN(zipCode) || zipCode < 10000 || zipCode > 99999) {
+        //     $("#zipCode").append("<br>" + "<p class='zipCodeError'>*Please Input a Valid Zip Code*</p>");
+        //     return;
+        // };
 
-        $(".zipCodeError").hide();
+        // $(".zipCodeError").hide();
+
+
 
         var longitude;
         var latitude;
@@ -102,6 +110,11 @@ $(document).ready(function() {
     $(document).on('click', '#add-order-line-btn2', function(event) {
         event.preventDefault();
 
+        $('#secretCodeValidate').parsley().validate()
+        if (!$('#secretCodeValidate').parsley().isValid()) {
+            return
+        }
+
         timeSelected = $("#timeSelected :selected").val();
         restaurantChoice = $('#restaurantList').html();
 
@@ -115,7 +128,7 @@ $(document).ready(function() {
             '<h3 class="confirmHeaders">Restaurant: </h3>' +
             '<p id="restaurantConfirm" class="confirmP"></p>' +
             '<h3 class="confirmHeaders">Secret Code: </h3>' +
-            '<p id="secretCodeConfirm" class="confirmP"></p>' +
+            '<p id="secretCodeConfirm" class="confirmP"></p>' + '<br>' +
             '<a href="addOrderLine.html"><button type="button" class="btn btn-warning">Add Order</button></a>' +
             '</div>' +
             '</div>')
@@ -146,12 +159,12 @@ $(document).ready(function() {
             display = document.querySelector('#timeLeft');
 
         startTimer(mins, display);
-        
+
         database.ref('orders').child(secretCode).set({
-    //     restaurantChoice: 'chipotle',
-    //     timeSelected: '11:00'
-    // });
-    //     database.ref().push({
+            //     restaurantChoice: 'chipotle',
+            //     timeSelected: '11:00'
+            // });
+            //     database.ref().push({
             restaurantChoice: restaurantChoice,
             secretCode: secretCode,
             timeSelected: timeSelected,
@@ -178,38 +191,38 @@ $(document).ready(function() {
         window.location.href = "creators_page.html";
     });
 
-  
-        var code = 'testCode10';
-      var div;
+
+    var code = 'testCode10';
+    var div;
 
 
 
-      database.ref('orders/tfy').on("value", function(snapshot) {
+    database.ref('orders/tfy').on("value", function(snapshot) {
         var r = snapshot.val().restaurantChoice;
         console.log(r);
         div = $('<div>');
 
         div.html(r);
         $('.jumbotron').append(div);
-      });
+    });
 
 
 
 
-      var name;
-        var item;
-        var qty;
+    var name;
+    var item;
+    var qty;
 
-        function addOrderLine(){
-            name = $('#order-line-name-input').val().trim();
-            item = $('#order-line-item-input').val().trim();
-            qty = $('select').val();
+    function addOrderLine() {
+        name = $('#order-line-name-input').val().trim();
+        item = $('#order-line-item-input').val().trim();
+        qty = $('select').val();
 
 
         database.ref('orders/tfy/lines').child(name + '-' + item + '-' + qty).set({
-           name: name,
-           item: item,
-           qty: qty
+            name: name,
+            item: item,
+            qty: qty
         });
 
 
@@ -227,18 +240,18 @@ $(document).ready(function() {
         $('#order-qty').html(qty);
 
 
-        }
+    }
 
-        $(document).on("click",'#add-order-line-btn', addOrderLine);
+    $(document).on("click", '#add-order-line-btn', addOrderLine);
 
-      $(document).on('click', '#submitCode', function(event) {
+    $(document).on('click', '#submitCode', function(event) {
         event.preventDefault();
         confirmCode = $("#confirmCode").val();
         console.log(confirmCode);
 
 
-      $("#popup").hide();
-        
+        $("#popup").hide();
+
 
     });
 });
