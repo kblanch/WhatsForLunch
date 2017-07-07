@@ -192,37 +192,33 @@ $(document).ready(function() {
     });
 
 
-    var code = 'testCode10';
-    var div;
+    var code;// = $('#confirmCode').val();
+      var div;
+      var found;
 
-
-
-    database.ref('orders/tfy').on("value", function(snapshot) {
-        var r = snapshot.val().restaurantChoice;
-        console.log(r);
-        div = $('<div>');
-
-        div.html(r);
-        $('.jumbotron').append(div);
-    });
+      // database.ref('orders').child().equalTo('tfy').once('value',function (snapshot) {
 
 
 
 
-    var name;
-    var item;
-    var qty;
-
-    function addOrderLine() {
-        name = $('#order-line-name-input').val().trim();
-        item = $('#order-line-item-input').val().trim();
-        qty = $('select').val();
 
 
-        database.ref('orders/tfy/lines').child(name + '-' + item + '-' + qty).set({
-            name: name,
-            item: item,
-            qty: qty
+
+
+      var name;
+        var item;
+        var qty;
+
+        function addOrderLine(){
+            name = $('#order-line-name-input').val().trim();
+            item = $('#order-line-item-input').val().trim();
+            qty = $('select').val();
+
+
+        database.ref('orders/'+ code + '/lines').child(name + '-' + item + '-' + qty).set({
+           name: name,
+           item: item,
+           qty: qty
         });
 
 
@@ -240,18 +236,70 @@ $(document).ready(function() {
         $('#order-qty').html(qty);
 
 
-    }
+        }
 
-    $(document).on("click", '#add-order-line-btn', addOrderLine);
+        $(document).on("click",'#add-order-line-btn', addOrderLine);
+
+
+    var secretCodeInputVal ='';
 
     $(document).on('click', '#submitCode', function(event) {
-        event.preventDefault();
-        confirmCode = $("#confirmCode").val();
-        console.log(confirmCode);
+      secretCodeInputVal = $('#confirmCode').val();
+      // console.log(secretCodeInputVal);
+      checkSecretCodeFB();
+      // if(found){
+      //   console.log('Found It!');
+      // }
+      // else{
+      //   console.log('not found');
+      // }
 
-
-        $("#popup").hide();
-
-
+       event.preventDefault();
+      // confirmCode = $("#confirmCode").val();
+       // console.log(code);
+      $("#popup").hide();
     });
+
+    function checkSecretCodeFB(){
+      // console.log(secretCodeInputVal);
+      database.ref('orders').orderByChild('secretCode').equalTo(secretCodeInputVal).once('value',function (snapshot) {
+        var key;
+        snapshot.forEach(function (childSnapshot){
+          key = childSnapshot.key;
+          return true;
+        });
+
+        if(key){
+          code = $("#confirmCode").val();
+          found = true;
+
+ 
+
+
+
+
+          console.log("Found user: " + key);
+          grabSecretCodeInfo();
+        }
+        else{
+          found = false;
+         console.log("User not found.");
+        }
+      });
+    }
+
+
+    function grabSecretCodeInfo(){
+      database.ref('orders/'+code).on("value", function(snapshot) {
+        var r = snapshot.val().restaurantChoice;
+        // console.log(r);
+        div = $('<div>');
+
+        div.html(r);
+        $('.jumbotron').html(r);
+        //$('.jumbotron').append(div);
+      });
+
+        // var confirmCode;
+    }
 });
