@@ -47,14 +47,16 @@ $(document).ready(function($) {
             var restaurantListDiv = $('<div class="rInfoDiv">');
             for (var i = 0; i < data.restaurants.length; i++) {
                 var rInfoDiv = $('<div>');
+                // rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>");
 
-                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>"); //
+                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<div id='restaurantList'>" + data.restaurants[i].restaurant.name +"<br>" + data.restaurants[i].restaurant.location.address + "<br>" + data.restaurants[i].restaurant.location.city + "<br><br></div>");
+
                 restaurantListDiv.append(rInfoDiv);
-           };
+           };   
 
-           };
+           
 
-            var btn = $('<button id="add-order-line-btn" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Submit</button>');
+            var btn = $('<button class="btn btn-warning" data-toggle="modal" data-target="#myModal">Submit</button>');
             restaurantListDiv.append(btn);
             $("#restaurantContent").html(restaurantListDiv);
         });
@@ -105,28 +107,16 @@ $(document).ready(function($) {
 
         secretCode = $("#secretCodeInput").val();
 
-        $("#wrapper").html('<div>'+
-                        '<h1>Confirmation Page</h1>'+
-                        '<div>'+
-                            '<h3>Time Left: </h3>' +
-                            '<p id="timeLeft"></p>' +
-                            '<h3>Restaurant: </h3>' +
-                            '<p id="restaurantConfirm"></p>' +
-                            '<h3>Secret Code: </h3>' +
-                            '<p id="secretCodeConfirm"></p>' +
-                         '</div>' +
-                    '</div>')
-
-
         $("#wrapper").html('<div>' +
             '<h1 class="creatorHeader">Confirmation Page</h1>' +
-            '<div>' +
+            '<div id="confirmWrapper">' +
             '<h3 class="confirmHeaders">Time Left: </h3>' +
             '<p id="timeLeft" class="confirmP"></p>' +
             '<h3 class="confirmHeaders">Restaurant: </h3>' +
             '<p id="restaurantConfirm" class="confirmP"></p>' +
             '<h3 class="confirmHeaders">Secret Code: </h3>' +
             '<p id="secretCodeConfirm" class="confirmP"></p>' +
+            '<a href="addOrderLine.html"><button type="button" class="btn btn-warning">Add Order</button></a>' +
             '</div>' +
             '</div>')
 

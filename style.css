@@ -36,4 +36,44 @@ a:visited{
 	color:white;
 }
 
+.formInput, #secretCodeInput {
+	width: 50%;
+	background-color: #f4f4f4;
+	border-style: none;
+	padding: 5px;
+	margin: auto;
+}
 
+#formContent {
+	padding: 20px;
+	text-align: center;
+	border-right: 5px solid #f4f4f4;
+}
+
+
+.creatorHeader, .timesUp {
+	text-align: center;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 50px;
+	color:#f7d79b;
+	padding: 20px;
+}
+
+.rInfoDiv {
+	padding: 20px;
+	text-align: center;
+}
+
+h3, .confirmP, #confirmWrapper {
+	text-align: center;
+	padding: 20px;
+
+}
+
+.zipCodeError{
+	color: red;
+}
+
+.confirmHeaders{
+	color: gray;
+}
