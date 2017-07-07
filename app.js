@@ -300,6 +300,60 @@ $(document).ready(function() {
         //$('.jumbotron').append(div);
       });
 
+
+
+    //starting Nat's code!
+    var query = firebase.database().ref("orders/" + code +"/lines").orderByValue();
+    query.once("value").then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+   
+            var key = childSnapshot.key;
+            var childDataQty = childSnapshot.val().qty;
+            var childDataName = childSnapshot.val().name;
+            var childDataItem = childSnapshot.val().item
+
+            console.log(childDataQty);
+            console.log(childDataName);
+            console.log(childDataItem);
+            div2 = $('<div>');
+            $('#confirmation').append(childDataName);
+
+            $("#confirm-table").append("<tr> <td>" + childDataName +
+            " </td><td> " + childDataItem +
+            " </td><td> " + childDataQty +"</td></tr>");
+      });
+    });
+  //end Nat's code!
+
+
+
+
         // var confirmCode;
     }
+
+    //starting Nat's code!
+    // var query = firebase.database().ref("orders/" + code +"/lines").orderByValue();
+    // query.once("value").then(function(snapshot) {
+    //     snapshot.forEach(function(childSnapshot) {
+   
+    //         var key = childSnapshot.key;
+    //         var childDataQty = childSnapshot.val().qty;
+    //         var childDataName = childSnapshot.val().name;
+    //         var childDataItem = childSnapshot.val().item
+
+    //         console.log(childDataQty);
+    //         console.log(childDataName);
+    //         console.log(childDataItem);
+    //         div2 = $('<div>');
+    //         $('#confirmation').append(childDataName);
+
+    //         $("#confirm-table").append("<tr> <td>" + childDataName +
+    //         " </td><td> " + childDataItem +
+    //         " </td><td> " + childDataQty +"</td></tr>");
+    //   });
+    // });
+  //end Nat's code!
+
+
+
 });
