@@ -12,30 +12,36 @@
     <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.2/parsley.js"></script> 
 </head>
 
 <body>
     <div id="wrapper">
         <h1 class="creatorHeader">Choose a Restaurant</h1>
-        <div id="formContent" class="col-md-6">
-            <br>
-            <form id="creatorForm">
-            <p id="restaurant">Restaurant</p>
-            <input type="text" name="restaurant" id="restaurantInput" class="formInput" placeholder="Name of Restaurant" >
-            <br><br>
-            <p id="address">Address</p>
-            <input type="text" name="address" id="addressInput" class="formInput" placeholder="Your Current Address">
-            <br><br>
-            <p id="city">City</p>
-            <input type="text" name="city" id="cityInput" class="formInput" placeholder="Your Current City">
-            <br><br>
-            <p id="zipCode">Zip Code</p>
-            <input type="text" name="zipCode" id="zipCodeInput" class="formInput" placeholder="Your Current Zip Code">
-            <br><br>
-            <button id="submit" class="btn btn-warning">Submit</button>
-            </form>
-        </div>
-
+        
+            <div id="formContent" class="col-md-6">
+                <br>
+                <form id="creatorForm" data-parsley-validate="">
+                    <p id="restaurant">Restaurant</p>
+                    <input type="text" name="restaurant" id="restaurantInput" class="formInput" placeholder="Name of Restaurant" required="">
+                    <br>
+                    <br>
+                    <p id="address">Address</p>
+                    <input type="text" name="address" id="addressInput" class="formInput" placeholder="Your Current Address">
+                    <br>
+                    <br>
+                    <p id="city">City</p>
+                    <input type="text" name="city" id="cityInput" class="formInput" placeholder="Your Current City">
+                    <br>
+                    <br>
+                    <p id="zipCode">Zip Code</p>
+                    <input type="text" name="zipCode" id="zipCodeInput" class="formInput" placeholder="Your Current Zip Code" required="" data-parsley-type="number" data-parsley-pattern="\d{5}">
+                    <br>
+                    <br>
+                    <button type="submit" id="submit" class="btn btn-warning">Submit</button>
+                </form>
+            </div>
+        
         <div id="restaurantContent" class="col-md-6">
         </div>
     </div>
@@ -48,20 +54,22 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <p>Allowed Time: <div class="form-group">
-                        <select class="form-control" id="timeSelected">
-                            <option value="10">10 min</option>
-                            <option value="20">20 min</option>
-                            <option value="30">30 min</option>
-                            <option value="40">40 min</option>
-                            <option value="50">50 min</option>
-                            <option value="60">60 min</option>
-
-                        </select>
-                        </div>
-                    </p>
+                        <p>Allowed Time:
+                            <div class="form-group">
+                                <select class="form-control" id="timeSelected">
+                                    <option value="10">10 min</option>
+                                    <option value="20">20 min</option>
+                                    <option value="30">30 min</option>
+                                    <option value="40">40 min</option>
+                                    <option value="50">50 min</option>
+                                    <option value="60">60 min</option>
+                                </select>
+                            </div>
+                        </p>
+                         <form id="secretCodeValidate" data-parsley-validate="">
                         <p id="secretCode">Secret Code</p>
-                        <input type="text" name="secretCode" id="secretCodeInput">
+                        <input type="text" name="secretCode" id="secretCodeInput" required="">
+                        </form>
                         <br>
                     </div>
                 </div>
@@ -71,7 +79,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
