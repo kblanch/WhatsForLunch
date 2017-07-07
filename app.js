@@ -173,4 +173,78 @@ $(document).ready(function($) {
 
         window.location.href = "creators_page.html";
     });
+
+    var config = {
+        apiKey: "AIzaSyB0ECXU5TKSZzGXj8f13HwpSLgAJYSJYXQ",
+        authDomain: "whats-for-lunch-2905e.firebaseapp.com",
+        databaseURL: "https://whats-for-lunch-2905e.firebaseio.com",
+        projectId: "whats-for-lunch-2905e",
+        storageBucket: "whats-for-lunch-2905e.appspot.com",
+        messagingSenderId: "826669516912"
+      };
+      firebase.initializeApp(config);
+
+      var database = firebase.database();
+        var code = 'testCode10';
+      var div;
+
+
+
+      database.ref('orders/tfy').on("value", function(snapshot) {
+        var r = snapshot.val().restaurantChoice;
+        console.log(r);
+        div = $('<div>');
+
+        div.html(r);
+        $('.jumbotron').append(div);
+      });
+
+
+
+
+      var name;
+        var item;
+        var qty;
+
+        function addOrderLine(){
+            name = $('#order-line-name-input').val().trim();
+            item = $('#order-line-item-input').val().trim();
+            qty = $('select').val();
+
+
+        database.ref('orders/tfy/lines').child(name + '-' + item + '-' + qty).set({
+           name: name,
+           item: item,
+           qty: qty
+        });
+
+
+
+        $('#order-line-name-input').val('');
+        $('#order-line-item-input').val('');
+        $('select').val('1');
+
+        console.log(name);
+        console.log(item);
+        console.log(qty);
+
+        $('#order-name').html(name);
+        $('#order-item').html(item);
+        $('#order-qty').html(qty);
+
+
+        }
+
+        $(document).on("click",'#add-order-line-btn', addOrderLine);
+
+      $(document).on('click', '#submitCode', function(event) {
+        event.preventDefault();
+        confirmCode = $("#confirmCode").val();
+        console.log(confirmCode);
+
+
+      $("#popup").hide();
+        
+
+    });
 });
