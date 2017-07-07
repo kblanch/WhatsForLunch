@@ -3,15 +3,25 @@
 <head>
 	<title>What's for lunch?</title>
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 
 
 </head>
 <body>
+<div class="container-fluid" id="popup" >
+  <header>Secret Code Confirmation Page</header>
+  <div>
+    <p><label>Secret Code</label>
+      <input type="text" id=confirmCode class="form-control" placeholder="Your Code Here"></p>
+  </div>
+  
+  <button id ="submitCode" class="btn btn-primary btn-warning btn-lg width-290">Submit Code</button>
+</div>
 	<div class='container'>
 		<div class="panel panel-default">
   			<div class="panel-body">

@@ -145,8 +145,31 @@ $(document).ready(function($) {
         display = document.querySelector('#timeLeft');
 
     startTimer(mins, display);
+database.ref().push({
+        restaurantChoice: restaurantChoice,
+        secretCode: secretCode,
+        timeSelected: timeSelected,
+    });
 
     });
 
+     
+
+   // this is your beginning!
+ 
+   $(document).on('click', '#submitCode', function(event) {
+        event.preventDefault();
+          $("#popup").hide();
+        confirmCode = $("#confirmCode").val();
+        console.log(confirmCode);
+
+
+        $("#popup").hide();
+        
+
+    });
+
+   
+//this is your end
 
 });
