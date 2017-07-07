@@ -1,4 +1,4 @@
-$(document).ready(function($) {
+$(document).ready(function() {
 
 
     var config = {
@@ -146,8 +146,12 @@ $(document).ready(function($) {
             display = document.querySelector('#timeLeft');
 
         startTimer(mins, display);
-
-        database.ref().push({
+        
+        database.ref('orders').child(secretCode).set({
+    //     restaurantChoice: 'chipotle',
+    //     timeSelected: '11:00'
+    // });
+    //     database.ref().push({
             restaurantChoice: restaurantChoice,
             secretCode: secretCode,
             timeSelected: timeSelected,
