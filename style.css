@@ -16,7 +16,7 @@ body {
 }
 
 header {
-	font-family: 'Droid Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 50px;
 	color:#f7d79b;
 }
@@ -25,11 +25,10 @@ header {
 .width-290 {
 	width:20%;
 	height:52px;
-	font-weight:bold;
 	font-size:20px;
 	margin: 5px;
 	letter-spacing: 1px;
-	font-family: 'Droid Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 a:visited{
@@ -53,7 +52,7 @@ a:visited{
 
 .creatorHeader, .timesUp {
 	text-align: center;
-	font-family: 'Droid Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 50px;
 	color:#f7d79b;
 	padding: 20px;
