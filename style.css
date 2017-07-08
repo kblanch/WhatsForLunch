@@ -77,7 +77,7 @@ h3, .confirmP, #confirmWrapper {
 	color: gray;
 }
 
-.parsley-required, .parsley-custom-error-message{
+.parsley-required{
 	color: red;
 }
 
