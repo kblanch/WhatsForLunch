@@ -53,9 +53,9 @@
 
   <div class="container-fluid" id="popup" >
     <header>Secret Code Confirmation Page</header>
-    <div>
+    <div id="addOrderSecretCode" data-parsley-validate="" required="">
       <p><label>Secret Code</label>
-        <input type="text" id=confirmCode class="form-control" placeholder="Your Code Here"></p>
+        <input type="text" id=confirmCode class="form-control" required="" placeholder="Your Code Here"></p>
     </div>
     
     <button id ="submitCode" class="btn btn-primary btn-warning btn-lg width-290">Submit Code</button>
@@ -73,14 +73,14 @@
 	<div class='container'>
 		<div class="panel panel-default">
   			<div class="panel-body">
-				<form>
+				<form id="orderForm" data-parsley-validate="">
 				  	<div class="form-group">
 					    <label>Name</label>
-					    <input type="text" class="form-control" id="order-line-name-input" placeholder="John">
+					    <input type="text" class="form-control" id="order-line-name-input" required="" placeholder="John">
 					</div>
 				  	<div class="form-group">
 					    <label>Item</label>
-					    <input type="text" class="form-control" id="order-line-item-input" placeholder="Tacos">
+					    <input type="text" class="form-control" id="order-line-item-input" required="" placeholder="Tacos">
 					</div>
 					<div class="form-group">
 						<label>Quantity</label>
@@ -94,8 +94,7 @@
 					</div>
 
 
-          <button id='add-order-line-btn' type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"> Submit </button>
-
+          <button id='add-order-line-btn' type="button" class="btn btn-default"> Submit </button>
 					<!-- <button id='add-order-line-btn' type="button" class="btn btn-default">Submit</button> -->
 				</form>
   			</div>
@@ -114,7 +113,7 @@
 
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -147,6 +146,7 @@
 
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
       <script type="text/javascript" src="app.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.2/parsley.js"></script> 
 
 </body>
 </html>
