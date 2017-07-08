@@ -23,7 +23,7 @@ $(document).ready(function() {
     var restaurantChoice;
     var restaurantSelected;
 
-
+// ----------------------------------Creators Page JS-----------------------------------
     function timesUp() {
 
         var timesUp = $('<h1 class="timesUp"> Times Up! You Are No Longer Able To Order.</h1>');
@@ -49,18 +49,31 @@ $(document).ready(function() {
                 var rInfoDiv = $('<div>');
                 // rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<ul id='restaurantList' style='list-style: none;''>" + "<li>" + data.restaurants[i].restaurant.name + "</li><li>" + data.restaurants[i].restaurant.location.address + "</li><li>" + data.restaurants[i].restaurant.location.city + "</li><li>" + data.restaurants[i].restaurant.location.zipcode + "</li></ul>");
 
-                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' class='radioButton' value=" + i + ">" + "<div id='restaurantList'>" + data.restaurants[i].restaurant.name + "<br>" + data.restaurants[i].restaurant.location.address + "<br>" + data.restaurants[i].restaurant.location.city + "<br><br></div>");
+                rInfoDiv.html("<input class='form-check-input' type='radio' name='restaurantRadio' data-required='true' data-parsley-error-message='Please Choose a Restaurant' required class='radioButton' value=" + i + ">" + "<div id='restaurantList'>" + data.restaurants[i].restaurant.name + "<br>" + data.restaurants[i].restaurant.location.address + "<br>" + data.restaurants[i].restaurant.location.city + "<br><br></div>");
 
                 restaurantListDiv.append(rInfoDiv);
             };
 
 
 
-            var btn = $('<button class="btn btn-warning" data-toggle="modal" data-target="#myModal">Submit</button>');
+            var btn = $('<button class="btn btn-warning" id="modalSubmit">Submit</button>');
             restaurantListDiv.append(btn);
             $("#restaurantContent").html(restaurantListDiv);
         });
     }
+
+
+    $(document).on('click', '#modalSubmit', function(event) {
+        event.preventDefault();
+
+        $('#restaurantContent').parsley().validate()
+
+        if (!$('#restaurantContent').parsley().isValid()) {
+            return
+        }
+
+        $('#myModal').modal('show');
+    });
 
 
     $(document).on('click', "#submit", function(event) {
@@ -172,6 +185,30 @@ $(document).ready(function() {
 
     });
 
+
+// ----------------------------Add Order Page JS-------------------------------------------
+
+    $(document).on('click', '#submitCode', function(event) {
+        event.preventDefault();
+
+        $('#addOrderSecretCode').parsley().validate()
+
+        if (!$('#addOrderSecretCode').parsley().isValid()) {
+            return
+        }
+
+        confirmCode = $("#confirmCode").val();
+        console.log(confirmCode);
+
+
+        $("#popup").hide();
+        var rootRef = database.ref().child('-Knx-JqNFcQLQZRzLfnT');
+        rootRef.on('child_added', snap => {
+            var name = snap.child('secretCode').val();
+            console.log(name);
+        });
+    });
+
     // $(document).on('click', '#submitCode', function(event) {
     //     event.preventDefault();
     //     confirmCode = $("#confirmCode").val();
@@ -185,6 +222,7 @@ $(document).ready(function() {
     //         console.log(name);
     //     });
     // });
+
 
     $(document).on('click', '#createOrderBtn', function(event) {
 
@@ -210,6 +248,18 @@ $(document).ready(function() {
         var qty;
 
         function addOrderLine(){
+
+            event.preventDefault();
+
+        $('#orderForm').parsley().validate()
+
+        if (!$('#orderForm').parsley().isValid()) {
+            return
+        }
+
+        $('#myModal1').modal('show');
+
+
             name = $('#order-line-name-input').val().trim();
             item = $('#order-line-item-input').val().trim();
             qty = $('select').val();
@@ -244,6 +294,13 @@ $(document).ready(function() {
     var secretCodeInputVal ='';
 
     $(document).on('click', '#submitCode', function(event) {
+
+        $('#addOrderSecretCode').parsley().validate()
+
+        if (!$('#addOrderSecretCode').parsley().isValid()) {
+            return
+        }
+
       secretCodeInputVal = $('#confirmCode').val();
       // console.log(secretCodeInputVal);
       checkSecretCodeFB();
