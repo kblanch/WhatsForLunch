@@ -185,6 +185,7 @@ $(document).ready(function() {
 
     });
 
+
 // ----------------------------Add Order Page JS-------------------------------------------
 
     $(document).on('click', '#submitCode', function(event) {
@@ -207,6 +208,21 @@ $(document).ready(function() {
             console.log(name);
         });
     });
+
+    // $(document).on('click', '#submitCode', function(event) {
+    //     event.preventDefault();
+    //     confirmCode = $("#confirmCode").val();
+    //     console.log(confirmCode);
+
+
+    //     $("#popup").hide();
+    //     var rootRef = database.ref().child('-Knx-JqNFcQLQZRzLfnT');
+    //     rootRef.on('child_added', snap => {
+    //         var name = snap.child('secretCode').val();
+    //         console.log(name);
+    //     });
+    // });
+
 
     $(document).on('click', '#createOrderBtn', function(event) {
 
@@ -298,7 +314,7 @@ $(document).ready(function() {
        event.preventDefault();
       // confirmCode = $("#confirmCode").val();
        // console.log(code);
-      $("#popup").hide();
+      // $("#popup").hide();
     });
 
     function checkSecretCodeFB(){
@@ -339,6 +355,7 @@ $(document).ready(function() {
         div.html(r);
         $('.jumbotron').html(r);
         //$('.jumbotron').append(div);
+        $("#popup").hide();
       });
 
 

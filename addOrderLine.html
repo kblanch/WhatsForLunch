@@ -2,32 +2,51 @@
 <html>
 <head>
 	<title>What's for lunch?</title>
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!--     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-    <style type="text/css">
-      .panel, .modal-header, .modal-footer{
-        background-color: #F0AD4E;
-      }
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <style type="text/css">
+    .jumbotron{
+      font-size: 35px;
+      color:#f7d79b;
+      background-color: white;
+      text-align: center;
+      font-weight: 700;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
 
-      .container-fluid { 
-margin: auto;
-text-align: center;
-background-size: cover;
-width:100%;
-height: 100%;
-z-index:2;
-background-color: white;
-position:fixed;
-border-radius: 25px;
-border: 2px #f7d79b;
-}
-      
-    </style>
+    .container-fluid { 
+      margin: auto;
+      text-align: center;
+      background-size: cover;
+      width:100%;
+      height: 100%;
+      z-index:2;
+      background-color: white;
+      position:fixed;
+      border-radius: 25px;
+      border: 2px #f7d79b;
+    }
+
+    .form-control{
+      width: 50%;
+      background-color: #f4f4f4;
+      border-style: none;
+      padding: 5px;
+      margin: auto;
+      border-radius: 0px;
+    }
+
+    .panel{
+      border: 0px;
+      border-top: 5px solid #f4f4f4;
+    }
+  </style>
     
 </head>
 <body>
@@ -38,17 +57,20 @@ border: 2px #f7d79b;
   <div id="addOrderSecretCode" data-parsley-validate="">
     <p><label>Secret Code</label>
       <input type="text" id=confirmCode class="form-control" required="" placeholder="Your Code Here"></p>
-  </div>
+
   
-  <button id ="submitCode" class="btn btn-primary btn-warning btn-lg width-290">Submit Code</button>
-</div>
 
+    
+    <button id ="submitCode" class="btn btn-primary btn-warning btn-lg width-290">Submit Code</button>
 
-  <div class='container'>
-    <div class = 'jumbotron'>
-      
-    </div>
   </div>
+
+
+<!--   <div class='container'> -->
+  <div class = 'jumbotron'>
+    
+  </div>
+<!--   </div> -->
   
 
 
@@ -76,7 +98,9 @@ border: 2px #f7d79b;
 					</div>
 
 
+
           <button id='add-order-line-btn' type="button" class="btn btn-default"> Submit </button>
+
 
 					<!-- <button id='add-order-line-btn' type="button" class="btn btn-default">Submit</button> -->
 				</form>
@@ -96,6 +120,7 @@ border: 2px #f7d79b;
 
 
 <!-- Modal -->
+<!-- <<<<<<< feature/addParsleyValidation
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -110,24 +135,43 @@ border: 2px #f7d79b;
       </div>
       <div class="modal-footer">
         <a href="index.html"><button type="button" class="btn btn-default" >Finish</button></a> <!-- data-dismiss="modal" -->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Add New Item</button> <!-- data-dismiss="modal" -->
-        <a href="confirmation.html"><button type="button" class="btn btn-warning">View Order</button></a>
+<!--         <button type="button" class="btn btn-default" data-dismiss="modal">Add New Item</button> data-dismiss="modal"
+        <a href="confirmation.html"><button type="button" class="btn btn-warning">View Order</button></a> -->
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Order Confirmation</h4>
+        </div>
+        <div class="modal-body">
+          <span id='order-name'></span>, your Line Has Been Added!
+          <div>Item: <span id='order-item'></span></div>
+          <div>Quantity: <span id='order-qty'></span></div>
+        </div>
+        <div class="modal-footer">
+          <a href="index.html"><button type="button" class="btn btn-warning" >Finish</button></a> <!-- data-dismiss="modal" -->
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Add New Item</button> <!-- data-dismiss="modal" -->
+          <a href="confirmation.html"><button type="button" class="btn btn-warning">View Order</button></a>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+
       </div>
     </div>
   </div>
-</div>
 
 
 
 
 
   	  	
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
       <script type="text/javascript" src="app.js"></script>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.2/parsley.js"></script> 
