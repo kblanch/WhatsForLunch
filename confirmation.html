@@ -36,9 +36,9 @@ border: 2px #f7d79b;
 
 <div class="container-fluid" id="popup" >
   <header>Secret Code Confirmation Page</header>
-  <div>
+  <div id="addOrderSecretCode" data-parsley-validate="">
     <p><label>Secret Code</label>
-      <input type="text" id=confirmCode class="form-control" placeholder="Your Code Here"></p>
+      <input type="text" id=confirmCode class="form-control" required="" placeholder="Your Code Here"></p>
   </div>
   
   <button id ="submitCode" class="btn btn-primary btn-warning btn-lg width-290">Submit Code</button>
@@ -89,6 +89,7 @@ border: 2px #f7d79b;
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.2/parsley.js"></script> 
 
 </body>
 </html>
