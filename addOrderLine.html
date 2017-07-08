@@ -18,6 +18,8 @@
       font-weight: 700;
       padding-bottom: 0px;
       margin-bottom: 0px;
+      font-family: 'Open Sans', sans-serif;
+
     }
 
     .container-fluid { 
@@ -31,6 +33,8 @@
       position:fixed;
       border-radius: 25px;
       border: 2px #f7d79b;
+      font-family: 'Open Sans', sans-serif;
+
     }
 
     .form-control{
@@ -40,6 +44,8 @@
       padding: 5px;
       margin: auto;
       border-radius: 0px;
+      font-family: 'Open Sans', sans-serif;
+
     }
 
     .panel{
@@ -91,10 +97,21 @@
 						  	<option>4</option>
 						  	<option>5</option>
 						</select>
+            <style>
+            label{
+              font-family: 'Open Sans', sans-serif;
+            }
+            </style>
 					</div>
 
 
           <button id='add-order-line-btn' type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"> Submit </button>
+           <a href="index.html"> <input type="button" class = "btn btn-default" value="Home" ></a>
+          <style>
+          a{
+          font-family: 'Open Sans', sans-serif;
+          }
+          </style> 
 
 					<!-- <button id='add-order-line-btn' type="button" class="btn btn-default">Submit</button> -->
 				</form>
@@ -118,15 +135,30 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
+        <style>
+          .modal-header{
+            font-family: 'Open Sans', sans-serif;
+          }
+        </style>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Order Confirmation</h4>
         </div>
         <div class="modal-body">
+        <style>
+          .modal-body{
+            font-family: 'Open Sans', sans-serif;
+          }
+        </style>
           <span id='order-name'></span>, your Line Has Been Added!
           <div>Item: <span id='order-item'></span></div>
           <div>Quantity: <span id='order-qty'></span></div>
         </div>
         <div class="modal-footer">
+        <style>
+          .modal-footer{
+            font-family: 'Open Sans', sans-serif;
+          }
+        </style>
           <a href="index.html"><button type="button" class="btn btn-warning" >Finish</button></a> <!-- data-dismiss="modal" -->
           <button type="button" class="btn btn-warning" data-dismiss="modal">Add New Item</button> <!-- data-dismiss="modal" -->
           <a href="confirmation.html"><button type="button" class="btn btn-warning">View Order</button></a>

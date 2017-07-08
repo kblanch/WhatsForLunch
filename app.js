@@ -317,7 +317,7 @@ $(document).ready(function() {
             console.log(childDataName);
             console.log(childDataItem);
             div2 = $('<div>');
-            $('#confirmation').append(childDataName);
+            // $('#confirmation').append(childDataName);
 
             $("#confirm-table").append("<tr> <td>" + childDataName +
             " </td><td> " + childDataItem +

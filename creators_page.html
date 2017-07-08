@@ -11,17 +11,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.7.2/parsley.js"></script> 
 </head>
 
 <body>
     <div id="wrapper">
         <h1 class="creatorHeader">Choose a Restaurant</h1>
-        
+        <style>
+        .creatorHeader{
+            font-family: 'Open Sans', sans-serif;
+        }
+        </style>
             <div id="formContent" class="col-md-6">
                 <br>
                 <form id="creatorForm" data-parsley-validate="">
+                <style>
+                form{
+                    font-family:'Open Sans', sans-serif;
+                }
+                </style>
                     <p id="restaurant">Restaurant</p>
                     <input type="text" name="restaurant" id="restaurantInput" class="formInput" placeholder="Name of Restaurant" required="">
                     <br>
@@ -39,6 +48,12 @@
                     <br>
                     <br>
                     <button type="submit" id="submit" class="btn btn-warning">Submit</button>
+                     <a href="index.html"> <input type="button" class = "btn btn-default" value="Home" ></a>
+                    <style>
+                    a{
+                    font-family: 'Open Sans', sans-serif;
+                    }
+                    </style> 
                 </form>
             </div>
         
@@ -53,6 +68,11 @@
                     <h4 class="modal-title" id="myModalLabel"></h4>
                 </div>
                 <div class="modal-body">
+                <style>
+                    .modal-body{
+                        font-family: 'Open Sans', sans-serif;
+                     }
+                </style>
                     <div>
                         <p>Allowed Time:
                             <div class="form-group">
@@ -74,6 +94,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                <style>
+                    .modal-footer{
+                        font-family: 'Open Sans', sans-serif;
+                    }
+                </style>
                     <button id="add-order-line-btn2" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2">Submit</button>
                 </div>
             </div>
