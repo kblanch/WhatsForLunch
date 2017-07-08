@@ -23,7 +23,7 @@ $(document).ready(function() {
     var restaurantChoice;
     var restaurantSelected;
 
-// -------------Creators Page JS---------------
+// -------------Creators Page JS--------------------
     function timesUp() {
 
         var timesUp = $('<h1 class="timesUp"> Times Up! You Are No Longer Able To Order.</h1>');
